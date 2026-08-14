@@ -1,0 +1,46 @@
+---
+---
+
+@use "main";
+
+/* Cor de acento do site.
+   Familia teal-azulada derivada do azul do gopher do Go (#74cddc).
+
+   O hex do gopher e claro demais para fundo branco (contraste 1.82:1, abaixo
+   dos 4.5:1 do WCAG AA), entao ele so e usado no tema escuro. No tema claro
+   entra #26697a, da mesma familia, com 6.21:1.
+
+   Definido aqui em vez de sobrescrever _sass/themes/_light.scss e _dark.scss
+   inteiros, para nao precisar manter copias desses arquivos a cada
+   atualizacao do gem do tema.
+
+   Os seletores espelham _sass/base/_base.scss do tema, que resolve o modo via
+   atributo data-bs-theme e cai no prefers-color-scheme quando ausente. */
+
+@mixin accent-light {
+  --link-color: #26697a;
+  --link-underline-color: #bcd6dd;
+}
+
+@mixin accent-dark {
+  --link-color: #74cddc;
+  --link-underline-color: #3a6470;
+}
+
+:root[data-bs-theme='light'] {
+  @include accent-light;
+}
+
+:root[data-bs-theme='dark'] {
+  @include accent-dark;
+}
+
+:root:not([data-bs-theme]) {
+  @media (prefers-color-scheme: light) {
+    @include accent-light;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    @include accent-dark;
+  }
+}
