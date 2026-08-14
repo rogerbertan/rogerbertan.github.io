@@ -1,7 +1,18 @@
 ---
 ---
 
-@use "main";
+@use 'abstracts/variables' with (
+  $theme: '{{ site.theme_mode }}'
+);
+
+/* prettier-ignore */
+@use 'main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}
+';
+
+/* append your custom style below */
 
 /* Cor de acento do site.
    Familia teal-azulada derivada do azul do gopher do Go (#74cddc).
@@ -9,10 +20,6 @@
    O hex do gopher e claro demais para fundo branco (contraste 1.82:1, abaixo
    dos 4.5:1 do WCAG AA), entao ele so e usado no tema escuro. No tema claro
    entra #26697a, da mesma familia, com 6.21:1.
-
-   Definido aqui em vez de sobrescrever _sass/themes/_light.scss e _dark.scss
-   inteiros, para nao precisar manter copias desses arquivos a cada
-   atualizacao do gem do tema.
 
    Os seletores espelham _sass/base/_base.scss do tema, que resolve o modo via
    atributo data-bs-theme e cai no prefers-color-scheme quando ausente. */
