@@ -2,14 +2,7 @@
 
 source "https://rubygems.org"
 
-gem "jekyll", "~> 4.3"
-
-# Plugins required by the Chirpy theme layouts/includes.
-gem "jekyll-paginate", "~> 1.1"
-gem "jekyll-seo-tag", "~> 2.8"
-gem "jekyll-archives", "~> 2.2"
-gem "jekyll-sitemap", "~> 1.4"
-gem "jekyll-include-cache", "~> 0.2"
+gem "jekyll-theme-chirpy", "~> 7.6"
 
 gem "html-proofer", "~> 5.0", group: :test
 
