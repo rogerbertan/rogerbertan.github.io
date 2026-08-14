@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#26697a"/>
+
+  <!-- barra de acento no rodape, com o azul do gopher -->
+  <rect x="0" y="614" width="1200" height="16" fill="#74cddc"/>
+
+  <!-- marca: mesmo chevron do favicon, reposicionado -->
+  <g transform="translate(96, 150) scale(1.55)">
+    <path d="M12 16 L32 32 L12 48"
+          fill="none" stroke="#ffffff" stroke-width="10"
+          stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="42" y="41" width="26" height="9" rx="4.5" fill="#ffffff"/>
+  </g>
+
+  <text x="96" y="370"
+        font-family="Georgia, 'Times New Roman', serif"
+        font-size="88" font-weight="bold" fill="#ffffff">Bertan Dev</text>
+
+  <text x="96" y="438"
+        font-family="Helvetica, Arial, sans-serif"
+        font-size="34" fill="#bcdee6">Backend, arquitetura e o que aprendo no caminho</text>
+
+  <text x="96" y="536"
+        font-family="'Courier New', Courier, monospace"
+        font-size="26" fill="#74cddc">bertan.tech</text>
+</svg>
