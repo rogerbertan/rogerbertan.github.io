@@ -1,77 +1,49 @@
-<!-- markdownlint-disable-next-line -->
-<div align="center">
+# rogerbertan.github.io
 
-  <!-- markdownlint-disable-next-line -->
-  # Chirpy Jekyll Theme
+Blog pessoal, publicado em <https://rogerbertan.github.io>.
 
-  A minimal, responsive, and feature-rich Jekyll theme for technical writing.
+Construído com [Jekyll](https://jekyllrb.com/) e o tema
+[Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy).
 
-  [![CI][badge-ci]][ci]&nbsp;
-  [![Codacy Badge][badge-codacy]][codacy]&nbsp;
-  [![GitHub license][badge-license]][license]&nbsp;
-  [![Gem Version][badge-gem]][gem]&nbsp;
-  [![Open in Dev Containers][badge-open-container]][open-container]
+## Requisitos
 
-  [**Live Demo** →][demo]
+- Ruby 3.3 (fixado em `.ruby-version`, gerenciado via [rbenv](https://github.com/rbenv/rbenv))
+- Node.js LTS
 
-  [![Devices Mockup](https://chirpy-img.netlify.app/commons/devices-mockup.png)][demo]
+## Rodando localmente
 
-</div>
+```bash
+bundle install
+npm install
+npm run build      # gera o CSS/JS em _sass/vendors e assets/js/dist
+bundle exec jekyll serve --livereload
+```
 
-## Features
+O site fica em <http://127.0.0.1:4000>.
 
-- **Design & UX** - Responsive layout, Dark/Light modes, Localized UI language,
-  and Dark mode images.
-- **Content Management** - Pinned posts, Hierarchical categories, Trending tags,
-  Auto-generated Table of Contents, and Last modified dates.
-- **Rich Text Support** - Syntax highlighting, Mathematical expressions, Mermaid
-  diagrams & flowcharts, and Embedded media.
-- **Interactivity & Outreach** - Built-in search, Multiple comment systems, and
-  Atom feeds.
-- **System & Optimization** - PWA support, integrated Web analytics, and
-  advanced SEO performance.
+## Escrevendo
 
-## Documentation
+Posts vão em `_posts/`, nomeados como `AAAA-MM-DD-titulo.md`. Rascunhos ficam em
+`_drafts/` e não são publicados. Para visualizá-los localmente, use
+`bundle exec jekyll serve --drafts`.
 
-To learn how to use, develop, and upgrade the project, please refer to the
-[Wiki][wiki].
+Front matter mínimo:
 
-## Contributing
+```yaml
+---
+title: Título do post
+date: 2026-01-01 10:00:00 -0300
+categories: [Categoria, Subcategoria]
+tags: [tag1, tag2]
+---
+```
 
-Contributions (_pull requests_, _issues_, and _discussions_) are what make the
-open-source community such an amazing place to learn, inspire, and create. Any
-contributions you make are greatly appreciated.
-For details, please refer to our [Contributing Guidelines][contribute-guide].
+## Deploy
 
-## Credits
+O push para `main` dispara o workflow `.github/workflows/pages-deploy.yml`,
+que builda e publica no GitHub Pages.
 
-This project is built on the [Jekyll][jekyllrb] ecosystem and integrates a
-collection of [excellent libraries][lib]. Its avatar and favicon are sourced
-from [ClipartMAX][clipartmax].
+## Licença
 
-Furthermore, thanks to everyone who contributed to the development of this project!
-
-[![all-contributors][contributors-avatar]][contributors]
-
-## License
-
-This project is licensed under the [MIT License][license].
-
-[badge-ci]: https://img.shields.io/github/actions/workflow/status/cotes2020/jekyll-theme-chirpy/ci.yml?logo=github
-[badge-codacy]: https://img.shields.io/codacy/grade/4e556876a3c54d5e8f2d2857c4f43894?logo=codacy
-[badge-license]: https://img.shields.io/github/license/cotes2020/jekyll-theme-chirpy?color=goldenrod
-[badge-gem]: https://img.shields.io/gem/v/jekyll-theme-chirpy?&logo=RubyGems&logoColor=ghostwhite&label=gem&color=orange
-[badge-open-container]: https://img.shields.io/badge/Dev_Containers-Open-deepskyblue?logo=linuxcontainers
-[gem]: https://rubygems.org/gems/jekyll-theme-chirpy
-[ci]: https://github.com/cotes2020/jekyll-theme-chirpy/actions/workflows/ci.yml?query=event%3Apush+branch%3Amaster
-[codacy]: https://app.codacy.com/gh/cotes2020/jekyll-theme-chirpy/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade
-[license]: https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/LICENSE
-[open-container]: https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/cotes2020/jekyll-theme-chirpy
-[jekyllrb]: https://jekyllrb.com/
-[clipartmax]: https://www.clipartmax.com/middle/m2i8b1m2K9Z5m2K9_ant-clipart-childrens-ant-cute/
-[demo]: https://cotes2020.github.io/chirpy-demo/
-[wiki]: https://github.com/cotes2020/jekyll-theme-chirpy/wiki
-[contribute-guide]: https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/docs/CONTRIBUTING.md
-[contributors]: https://github.com/cotes2020/jekyll-theme-chirpy/graphs/contributors
-[contributors-avatar]: https://contrib.rocks/image?repo=cotes2020/jekyll-theme-chirpy&columns=16&max=112
-[lib]: https://github.com/cotes2020/chirpy-static-assets
+O tema Chirpy é MIT, © 2019 Cotes Chung. Veja [LICENSE](LICENSE).
+O conteúdo dos posts é © Roger Bertan.
