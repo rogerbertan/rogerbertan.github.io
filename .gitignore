@@ -14,9 +14,14 @@ _site
 # IDE configurations
 .idea
 .vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/tasks.json
+
+# Claude Code
+.claude/
 
 # Hidden system files
 *~
 .DS_Store
 Thumbs.db
-.claude/
