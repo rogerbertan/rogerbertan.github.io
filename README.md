@@ -8,18 +8,18 @@ Construído com [Jekyll](https://jekyllrb.com/) e o tema
 ## Requisitos
 
 - Ruby 3.3 (fixado em `.ruby-version`, gerenciado via [rbenv](https://github.com/rbenv/rbenv))
-- Node.js LTS
+
+O tema vem da gem `jekyll-theme-chirpy`, então não há passo de build de assets.
 
 ## Rodando localmente
 
 ```bash
-bundle install
-npm install
-npm run build      # gera o CSS/JS em _sass/vendors e assets/js/dist
-bundle exec jekyll serve --livereload
+make install    # bundle install
+make serve      # sobe o servidor em http://localhost:4000
+make test       # builda em modo produção e valida com htmlproofer
 ```
 
-O site fica em <http://127.0.0.1:4000>.
+`make help` lista todos os comandos.
 
 ## Escrevendo
 
