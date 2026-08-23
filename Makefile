@@ -43,4 +43,4 @@ test:
 dev: clean serve
 
 prod: clean build
-	@echo "🚀 Site pronto para produção em _site/"
+	@echo "Site pronto para produção em _site/"
