@@ -22,7 +22,7 @@ layout: compress
     }
   ],
   "start_url": "{{ '/index.html' | relative_url }}",
-  "theme_color": "#26697a",
+  "theme_color": "#0b67b0",
   "background_color": "#ffffff",
   "display": "standalone"
 }

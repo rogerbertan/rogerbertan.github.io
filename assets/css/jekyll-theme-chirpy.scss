@@ -15,23 +15,24 @@
 /* append your custom style below */
 
 /* Cor de acento do site.
-   Familia teal-azulada derivada do azul do gopher do Go (#74cddc).
+   Familia azul derivada do gradiente da logo da marca (#0F87D2 -> #0A5A9C).
 
-   O hex do gopher e claro demais para fundo branco (contraste 1.82:1, abaixo
-   dos 4.5:1 do WCAG AA), entao ele so e usado no tema escuro. No tema claro
-   entra #26697a, da mesma familia, com 6.21:1.
+   Nenhum dos dois hex da logo serve para texto nos dois modos: #0F87D2 rende
+   3.88:1 sobre branco e #0A5A9C rende 2.42:1 sobre o fundo escuro do tema,
+   ambos abaixo dos 4.5:1 do WCAG AA. Entao cada modo usa um ponto diferente da
+   mesma rampa: #0B67B0 no claro (5.86:1) e #4FB3F0 no escuro (7.40:1).
 
    Os seletores espelham _sass/base/_base.scss do tema, que resolve o modo via
    atributo data-bs-theme e cai no prefers-color-scheme quando ausente. */
 
 @mixin accent-light {
-  --link-color: #26697a;
-  --link-underline-color: #bcd6dd;
+  --link-color: #0b67b0;
+  --link-underline-color: #b7d5ea;
 }
 
 @mixin accent-dark {
-  --link-color: #74cddc;
-  --link-underline-color: #3a6470;
+  --link-color: #4fb3f0;
+  --link-underline-color: #2d5f83;
 }
 
 :root[data-bs-theme='light'] {
