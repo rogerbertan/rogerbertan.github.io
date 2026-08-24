@@ -5,6 +5,10 @@
   icon: "fab fa-linkedin"
   url: "https://www.linkedin.com/in/rogerbertan"
 
+- type: medium
+  icon: "fab fa-medium"
+  url: "https://rogerbertan.medium.com/"
+
 - type: email
   icon: "fas fa-envelope"
   noblank: true
