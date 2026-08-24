@@ -52,3 +52,24 @@
     @include accent-dark;
   }
 }
+
+/* Barra de progresso de leitura, fixa no topo da viewport.
+
+   Quem escreve a largura e o script em _includes/reading-progress.html, a
+   cada evento de scroll. A transicao curta suaviza os saltos entre um evento
+   e outro sem atrasar a barra de forma perceptivel.
+
+   O z-index alto e folga de sobra: o maior do tema e 5. */
+
+#reading-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0; /* neutraliza o margin-top do #tail-wrapper antes do JS mover a barra */
+  width: 0;
+  height: 4px;
+  z-index: 9999;
+  background-color: var(--link-color);
+  pointer-events: none; /* nao rouba clique dos 4px de cima do topbar */
+  transition: width 0.12s ease-out;
+}
