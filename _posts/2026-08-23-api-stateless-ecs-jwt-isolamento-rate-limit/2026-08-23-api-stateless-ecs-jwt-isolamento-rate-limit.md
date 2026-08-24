@@ -4,6 +4,9 @@ description: "Como rodar duas tasks atrás de um load balancer determinou o dese
 date: 2026-08-23 10:00:00 -0300
 categories: [Backend, Arquitetura]
 tags: [java, spring-boot, jwt, spring-security, aws, ecs, seguranca]
+image:
+  path: /assets/img/posts/2026-08-23-api-stateless-ecs-jwt-isolamento-rate-limit/api-stateless-ecs-jwt.webp
+  alt: "Três pilares da API no ECS: autenticação JWT, isolamento de dados e rate limiting"
 ---
 
 E aí, pessoal!
