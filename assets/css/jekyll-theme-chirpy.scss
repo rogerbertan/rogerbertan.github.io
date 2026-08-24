@@ -73,3 +73,205 @@
   pointer-events: none; /* nao rouba clique dos 4px de cima do topbar */
   transition: width 0.12s ease-out;
 }
+
+/* Tema dos blocos de codigo no modo escuro: `rougify style github.dark`.
+
+   Substitui o base16.dark que o tema traz em _sass/themes/_dark.scss, cujo
+   contraste entre tokens e baixo demais. O modo claro fica como esta (github),
+   entao so o bloco escuro precisa ser sobrescrito.
+
+   O seletor e :root[data-bs-theme='dark'] .highlight, com dois pontos a notar:
+
+   - especificidade: as regras do tema vivem dentro de [data-bs-theme='dark'],
+     o mesmo peso destas. Empate resolve por ordem, e este arquivo entra depois
+     do @use 'main', entao prevalece sem precisar de !important.
+
+   - fundo: o Chirpy pinta o bloco pela variavel --highlight-bg-color, nao pelo
+     background-color que o rougify emite no seletor .highlight. Por isso a
+     variavel e redefinida junto, ou o fundo continuaria #151515.
+
+   Contraste sobre o fundo #161b22, para os tokens que carregam texto (WCAG AA
+   pede 4.5:1 para corpo, 3:1 para texto grande; codigo e corpo):
+
+     texto/pontuacao #c9d1d9  11.6:1
+     keywords        #ff7b72   7.0:1
+     strings         #a5d6ff  10.6:1
+     numeros/vars    #79c0ff   8.0:1
+     funcoes         #d2a8ff   8.6:1
+     classes/tipos   #ffa657   9.5:1
+     comentarios     #8b949e   5.4:1
+
+   O menor e o dos comentarios, com 5.4:1, acima dos 4.5:1 exigidos. */
+
+@mixin code-github-dark {
+  --highlight-bg-color: #161b22;
+  --highlighter-rouge-color: #c9d1d9;
+  --highlight-lineno-color: #6e7681;
+
+  .highlight {
+    color: #c9d1d9;
+
+    /* o tema fixa background-color junto do color neste seletor, entao nao
+       basta redefinir a variavel acima: o literal precisa ser sobrescrito */
+    background-color: var(--highlight-bg-color);
+
+    .w {
+      color: #c9d1d9;
+    }
+
+    /* prompt de shell: fora do github.dark, herdado do tema */
+    .gp {
+      color: #8b949e;
+    }
+
+    .k,
+    .kd,
+    .kn,
+    .kp,
+    .kr,
+    .kt,
+    .kv {
+      color: #ff7b72;
+    }
+
+    .nb,
+    .nc,
+    .no,
+    .nn {
+      color: #ffa657;
+    }
+
+    .na,
+    .nt,
+    .sr {
+      color: #7ee787;
+    }
+
+    .kc,
+    .l,
+    .ld,
+    .m,
+    .mb,
+    .mf,
+    .mh,
+    .mi,
+    .il,
+    .mo,
+    .mx,
+    .sb,
+    .bp,
+    .ne,
+    .nl,
+    .py,
+    .nv,
+    .vc,
+    .vg,
+    .vi,
+    .vm,
+    .o,
+    .ow {
+      color: #79c0ff;
+    }
+
+    .s,
+    .sa,
+    .sc,
+    .dl,
+    .sd,
+    .s2,
+    .se,
+    .sh,
+    .sx,
+    .s1,
+    .ss {
+      color: #a5d6ff;
+    }
+
+    .nd,
+    .nf,
+    .fm {
+      color: #d2a8ff;
+    }
+
+    .c,
+    .ch,
+    .cd,
+    .cm,
+    .cp,
+    .cpf,
+    .c1,
+    .cs,
+    .gl,
+    .gt {
+      color: #8b949e;
+    }
+
+    /* .p e .nx nao existem no github.dark: sem regra, herdariam o cinza do
+       base16.dark e do --code-color. Alinhados ao foreground do tema. */
+    .ni,
+    .si,
+    .p,
+    .pi,
+    .nx,
+    .n {
+      color: #c9d1d9;
+    }
+
+    /* diff e enfase: par cor/fundo, precisam vir juntos */
+    .gd {
+      color: #ffdcd7;
+      background-color: #67060c;
+    }
+
+    .gi {
+      color: #aff5b4;
+      background-color: #033a16;
+    }
+
+    .err {
+      color: #f0f6fc;
+      background-color: #8e1519;
+    }
+
+    .gr {
+      color: #f0f6fc;
+    }
+
+    /* o tema pinta fundo no .gh; o github.dark nao, entao limpa */
+    .gh,
+    .gu {
+      color: #1f6feb;
+      background-color: transparent;
+      font-weight: bold;
+    }
+
+    .ge {
+      color: #c9d1d9;
+      font-style: italic;
+    }
+
+    .gs {
+      color: #c9d1d9;
+      font-weight: bold;
+    }
+
+    .ges {
+      font-weight: bold;
+      font-style: italic;
+    }
+  }
+}
+
+/* Mesmo esquema de modos do acento no topo do arquivo: o tema resolve o modo
+   pelo atributo data-bs-theme e cai no prefers-color-scheme quando ausente.
+   O terceiro seletor e o que cobre o default do site, com o toggle intocado. */
+
+:root[data-bs-theme='dark'] {
+  @include code-github-dark;
+}
+
+:root:not([data-bs-theme]) {
+  @media (prefers-color-scheme: dark) {
+    @include code-github-dark;
+  }
+}
