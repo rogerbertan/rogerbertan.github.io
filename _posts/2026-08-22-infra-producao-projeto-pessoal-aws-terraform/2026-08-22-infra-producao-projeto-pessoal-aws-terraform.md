@@ -5,8 +5,8 @@ date: 2026-08-22 10:00:00 -0300
 categories: [Backend, Arquitetura]
 tags: [aws, terraform, oidc, ecs, ci-cd, seguranca, devops]
 image:
-  path: /assets/img/posts/2026-08-22-infra-producao-projeto-pessoal-aws-terraform/infra-aws-diagram.png
-  alt: Diagrama da infraestrutura na AWS com ALB em subnet pública e tasks ECS em subnet privada
+  path: /assets/img/posts/2026-08-22-infra-producao-projeto-pessoal-aws-terraform/infra-aws-terraform.webp
+  alt: Infraestrutura de produção na AWS provisionada com Terraform
 ---
 
 E aí, pessoal!
@@ -19,7 +19,7 @@ Este post cobre a infraestrutura: autenticação do pipeline sem segredo fixo, o
 
 ## O desenho
 
-![Diagrama da infraestrutura na AWS](/assets/img/posts/2026-08-22-infra-producao-projeto-pessoal-aws-terraform/infra-aws-diagram.png){: w="1200" h="1050" }
+![Diagrama da infraestrutura na AWS](/assets/img/posts/2026-08-22-infra-producao-projeto-pessoal-aws-terraform/infra-aws-diagram.webp){: w="1600" h="1350" }
 _Duas tasks Fargate em subnet privada, ALB na pública, RDS sem rota para a internet._
 
 O importante no diagrama é o que **não** está exposto. Só o load balancer aceita tráfego da internet. Tasks e banco ficam em subnets privadas, sem IP público.
